@@ -1,10 +1,20 @@
 import express, { Application, Request, Response } from 'express'
-import homeRoute from './routes/homeRoute'
-import postCodeRoute from './routes/postCodeRoute'
+import homeRoute from './route/homeRoute'
+import postCodeRoute from './route/postCodeRoute'
+import "reflect-metadata";
+import {createConnection} from "typeorm";
+import cors from 'cors';
 
-const app: Application = express()
+const options: cors.CorsOptions = {
+    origin: '*'
+};
+createConnection().then(async connection => {
 
-app.use('/home', homeRoute)
-app.use('/postCode', postCodeRoute)
+    const app: Application = express()
+    app.use(cors(options))
+    app.use('/home', homeRoute)
+    app.use('/postCode', postCodeRoute)
 
-app.listen(3000);
+    app.listen(3000);
+
+})
