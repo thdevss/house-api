@@ -23,7 +23,7 @@ services:
       POSTGRES_PASSWORD: ${DB_PASS}
       POSTGRES_DB: ${DB_NAME}
     volumes:
-      - db_data
+      - db_data:/var/lib/pgsql/data
     networks:
       - back-tier
 
