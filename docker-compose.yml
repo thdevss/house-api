@@ -4,7 +4,7 @@ services:
   server:
     build:
       context: .
-      dockerfile: Dockerfilem
+      dockerfile: Dockerfile
       target: base
     container_name: server
     env_file: .env
