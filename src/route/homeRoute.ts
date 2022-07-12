@@ -1,5 +1,5 @@
 import express, { Request, Response, Router } from 'express'
-import { createHome, getAllHome } from '../controller/homeController'
+import { createHome, destroyHome, getAllHome, updateHome } from '../controller/homeController'
 
 const router: Router = Router()
 
@@ -8,14 +8,9 @@ router.get('/', getAllHome);
 router.post('/', createHome);
 
 
-router.patch('/:id', (req: Request, res: Response) => {
-    res.send('Update');
-});
+router.patch('/:id', updateHome);
 
 
-router.delete('/:id', (req: Request, res: Response) => {
-    res.send('Del');
-});
-
+router.delete('/:id', destroyHome)
 
 export default router

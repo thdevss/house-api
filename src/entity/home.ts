@@ -12,7 +12,7 @@ export class Home extends BaseEntity {
     @Column()
     desc!: string;
 
-    @Column()
+    @Column("decimal")
     price!: number;
 
     @Column()
