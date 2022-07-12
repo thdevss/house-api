@@ -1,9 +1,8 @@
 import "reflect-metadata"
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
-import {getManager} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, getManager } from "typeorm";
 
 @Entity({ name: "home" })
-export class Home {
+export class Home extends BaseEntity {
     @PrimaryGeneratedColumn()
     id!: number;
 
