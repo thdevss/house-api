@@ -1,12 +1,12 @@
 version: '3.1'
 
 services:
-  server:
+  house_api:
     build:
       context: .
       dockerfile: Dockerfile
       target: base
-    container_name: server
+    container_name: house_api
     env_file: .env
     depends_on:
       - db
