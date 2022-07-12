@@ -16,7 +16,7 @@ export class Home extends BaseEntity {
     price!: number;
 
     @Column()
-    post_code!: number;
+    post_code!: string;
 
 
 }

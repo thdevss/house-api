@@ -1,4 +1,7 @@
-import express, { Application, Request, Response } from 'express'
+import * as dotenv from "dotenv";
+dotenv.config({ path: __dirname+'/.env' });
+
+import express, { Application } from 'express'
 import homeRoute from './route/homeRoute'
 import postCodeRoute from './route/postCodeRoute'
 import "reflect-metadata";

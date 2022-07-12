@@ -1,0 +1,33 @@
+version: '3.1'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+      target: base
+    container_name: server
+    env_file: .env
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - 8043:3000 # for nginx reverse proxy
+    networks:
+      - back-tier
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_USER: ${DB_USER}
+    volumes:
+      - db_data:/var/lib/postgresql/data/pgdata
+    networks:
+      - back-tier
+
+volumes:
+  db_data:
+networks:
+  back-tier:
